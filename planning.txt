@@ -1,0 +1,33 @@
+CodeBridge – Assignment 2 Planning
+Project Partner: Working alone
+
+Vision for the site:
+Originally, I wanted to build something useful for MRU computer science students. 
+The idea was to make tutoring feel more approachable, like getting help from a friend who’s already taken the course. 
+That’s where the name CodeBridge came from — bridging the gap between confusion and clarity.
+
+I kept the branding simple and modern, aiming for a clean and minimal look with a tech vibe. 
+Since then, I’ve made a lot of updates to improve both the design and functionality based on what I’ve learned and researched on my own.
+
+Changes from original A1 version:
+	•	Combined all pages into one single index.html instead of three separate pages. This made the experience smoother and more modern.
+	•	Replaced the services table with a responsive 2x2 subject grid. Each block links straight to the contact form and auto-fills the subject.
+	•	Updated the contact form with a dropdown, optional fields for “Other,” and a thank-you message after submission.
+	•	Added smooth scroll behavior and a “Back to Top” button for better navigation.
+	•	Used AOS (Animate On Scroll) to add some subtle motion as you scroll down.
+
+Design decisions:
+	•	Kept the blue/white/gray color scheme for a clean and academic look.
+	•	Hero section now has a faded background image to add life without distracting from the text.
+	•	Navigation bar updated: logo stays on the far left, menu items float to the right.
+	•	Everything is mobile-friendly with proper responsive breakpoints.
+
+Tools used:
+	•	VS Code
+	•	GitHub for version control
+	•	Formspree for the contact form
+	•	AOS library for scroll animations
+
+Some tools (like GitHub and Formspree) I’ve been learning privately and practicing outside class. 
+I also spent time researching ideas online and customizing things based on what I found. 
+This project helped me put a lot of those skills into action.

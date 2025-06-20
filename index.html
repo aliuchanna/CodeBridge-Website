@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CodeBridge – Peer Tutoring Platform for MRU Students" />
+  <meta name="keywords" content="tutoring, MRU, peer help, university, computer science" />
+  <meta name="author" content="Ali Channa" />
+  <title>CodeBridge | Peer Tutoring</title>
+
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="style/main.css" />
+</head>
+<body>
+
+  <!-- Splash Screen -->
+  <div id="splash">
+    <img src="images/logo.png" alt="CodeBridge Logo" />
+  </div>
+
+<!-- Header -->
+<header>
+  <nav class="nav-container">
+    <div class="logo-container">
+      <img src="images/logo.png" alt="CodeBridge Logo" class="logo" />
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#services">Subjects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero" data-aos="fade-up">
+    <div class="hero-background">
+      <div class="hero-overlay">
+        <h1>Welcome to CodeBridge</h1>
+        <p class="subtitle">Your Bridge to Better Grades — Peer Tutoring Services for MRU Students.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why CodeBridge -->
+  <section class="why" id="why" data-aos="fade-up">
+    <div class="why-container">
+      <div class="why-left">
+        <h2>Why CodeBridge?</h2>
+      </div>
+      <div class="why-right">
+        <p class="first-letter">We understand the struggle because we’ve been there. Our tutors are students who’ve taken and aced the same courses you’re in right now.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subjects Section -->
+  <section id="services" class="services" data-aos="fade-right">
+    <h2>Subjects We Tutor</h2>
+    <div class="services-grid">
+      <div class="subject-card" onclick="scrollToContact('COMP 1501')">
+        <img src="images/study1.jpg" alt="COMP 1501">
+        <h3>COMP 1501</h3>
+      </div>
+      <div class="subject-card" onclick="scrollToContact('COMP 2511')">
+        <img src="images/study2.jpg" alt="COMP 2511">
+        <h3>COMP 2511</h3>
+      </div>
+      <div class="subject-card" onclick="scrollToContact('COMP 2655')">
+        <img src="images/study3.jpg" alt="COMP 2655">
+        <h3>COMP 2655</h3>
+      </div>
+      <div class="subject-card" onclick="scrollToContact('Other')">
+        <img src="images/study4.jpg" alt="More Subjects">
+        <h3>More Subjects</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact" data-aos="fade-left">
+    <h2>Contact Us</h2>
+    <form action="https://formspree.io/f/your-form-id" method="POST" onsubmit="return showThanks()">
+      <label for="subject-select">Select Subject:</label>
+      <select id="subject-select" name="subject" required onchange="toggleOtherField(this.value)">
+        <option value="">-- Please choose an option --</option>
+        <option value="COMP 1501">COMP 1501</option>
+        <option value="COMP 2511">COMP 2511</option>
+        <option value="COMP 2655">COMP 2655</option>
+        <option value="Other">Other</option>
+      </select>
+      <br>
+      
+      <div id="other-subject-area" style="display: none;">
+        <label for="other-subject">Please specify the subject:</label>
+        <input type="text" id="other-subject" name="other-subject" placeholder="e.g. GNED 1301">
+      </div>
+
+      <label for="body">Inquiry:</label>
+      <textarea id="body" name="body" required></textarea>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+      <label for="phone">Phone (optional):</label>
+      <input type="tel" id="phone" name="phone" placeholder="403-555-1234">
+
+      <p>Preferred Method:</p>
+      <div class="radio-group">
+        <label><input type="radio" name="method" value="email" checked> Email</label>
+        <label><input type="radio" name="method" value="phone"> Phone</label>
+      </div>
+
+      <label for="date">Preferred Date to Start:</label>
+      <input type="date" id="date" name="date">
+
+      <div class="form-buttons">
+        <input type="reset" value="Reset">
+        <input type="submit" value="Submit">
+      </div>
+
+      <p id="thank-you-message" style="display: none; color: green; font-weight: bold;">Thank you for your query! We will be in touch with you soon.</p>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer data-aos="fade-up">
+    <p>© 2025 CodeBridge by Ali Channa</p>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" title="Go to top">↑</button>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+  <!-- Scripts -->
+  <script>
+    window.addEventListener('load', () => {
+      document.getElementById('splash').classList.add('fade-out');
+    });
+
+    function toggleOtherField(value) {
+      document.getElementById('other-subject-area').style.display = value === 'Other' ? 'block' : 'none';
+    }
+
+    function scrollToContact(subject) {
+      document.getElementById('subject-select').value = subject;
+      toggleOtherField(subject);
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showThanks() {
+      document.getElementById('thank-you-message').style.display = 'block';
+      return true;
+    }
+
+    // Back to Top button
+    const topBtn = document.getElementById("backToTop");
+    window.onscroll = function () {
+      topBtn.style.display = window.scrollY > 200 ? "block" : "none";
+    };
+    topBtn.onclick = function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+  </script>
+</body>
+</html>
